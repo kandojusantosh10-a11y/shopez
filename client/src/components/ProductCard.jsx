@@ -1,71 +1,73 @@
-function ProductCard({ name, price }) {
+import axios from "axios";
+
+function ProductCard({ product }) {
+  if (!product) return null;
+
+  const handleAddToCart = async () => {
+    try {
+      await axios.post(
+        "http://localhost:5000/api/cart",
+        {
+          user: "Santosh",
+          product: product.name,
+          image: product.image,
+          price: product.price,
+          quantity: 1,
+        }
+      );
+
+      alert("✅ Product Added To Cart");
+    } catch (error) {
+      console.log(error);
+      alert("❌ Failed To Add Product");
+    }
+  };
+
   return (
     <div
       style={{
+        width: "100%",
         background: "#fff",
-        width: "280px",
-        borderRadius: "18px",
+        borderRadius: "16px",
         overflow: "hidden",
-        boxShadow: "0 8px 20px rgba(0,0,0,0.12)",
-        transition: "0.3s",
-        cursor: "pointer",
-        textAlign: "center",
-        paddingBottom: "20px",
+        boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
       }}
     >
       <div
         style={{
-          height: "220px",
-          background: "#f3f4f6",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "90px",
+          background: "#f8fafc",
+          padding: "15px",
         }}
       >
-        📱
+        <img
+          src={product.image}
+          alt={product.name}
+          style={{
+            width: "100%",
+            height: "260px",
+            objectFit: "contain",
+          }}
+        />
       </div>
 
-      <div style={{ padding: "20px" }}>
-        <h2
-          style={{
-            fontSize: "22px",
-            marginBottom: "10px",
-            color: "#222",
-          }}
-        >
-          {name}
+      <div style={{ padding: "18px" }}>
+        <h3>{product.name}</h3>
+
+        <p>{product.description}</p>
+
+        <h2 style={{ color: "#2563eb" }}>
+          ₹{product.price}
         </h2>
 
-        <p
-          style={{
-            color: "#f59e0b",
-            fontSize: "20px",
-          }}
-        >
-          ⭐⭐⭐⭐⭐
-        </p>
-
-        <h3
-          style={{
-            color: "#2563eb",
-            marginTop: "10px",
-            marginBottom: "20px",
-            fontSize: "24px",
-          }}
-        >
-          ₹{price}
-        </h3>
-
         <button
+          onClick={handleAddToCart}
           style={{
+            width: "100%",
             background: "#2563eb",
-            color: "white",
-            padding: "12px 25px",
+            color: "#fff",
             border: "none",
+            padding: "12px",
             borderRadius: "8px",
-            fontSize: "16px",
-            fontWeight: "bold",
             cursor: "pointer",
           }}
         >

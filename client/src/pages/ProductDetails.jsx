@@ -7,7 +7,6 @@ function ProductDetails() {
     <div>
       <h1>Product Details</h1>
       <h2>Product ID: {id}</h2>
-
       <button>Add To Cart</button>
     </div>
   );

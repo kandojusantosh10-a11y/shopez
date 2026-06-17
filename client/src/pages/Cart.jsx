@@ -21,10 +21,27 @@ function Cart() {
     }
   };
 
+  const removeItem = async (id) => {
+    try {
+      await axios.delete(
+        `http://localhost:5000/api/cart/${id}`
+      );
+
+      setCartItems(
+        cartItems.filter((item) => item._id !== id)
+      );
+
+      alert("Item Removed From Cart");
+    } catch (error) {
+      console.log(error);
+      alert("Failed To Remove Item");
+    }
+  };
+
   return (
     <div
       style={{
-        maxWidth: "1100px",
+        maxWidth: "1300px",
         margin: "40px auto",
         padding: "20px",
       }}
@@ -32,7 +49,9 @@ function Cart() {
       <h1
         style={{
           textAlign: "center",
-          marginBottom: "30px",
+          marginBottom: "40px",
+          fontSize: "42px",
+          color: "#1e293b",
         }}
       >
         🛒 Shopping Cart
@@ -43,72 +62,133 @@ function Cart() {
           Your cart is empty
         </h2>
       ) : (
-        <>
-          {cartItems.map((item) => (
-            <div
-              key={item._id}
-              style={{
-                background: "#fff",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "20px",
-                marginBottom: "20px",
-                borderRadius: "12px",
-                boxShadow: "0 4px 12px rgba(0,0,0,.1)",
-              }}
-            >
-              <div>
-                <h2>{item.product}</h2>
-                <p>⭐⭐⭐⭐⭐</p>
-                <p>Quantity: {item.quantity}</p>
-              </div>
-
-              <button
+        <div
+          style={{
+            display: "flex",
+            gap: "30px",
+            alignItems: "flex-start",
+            flexWrap: "wrap",
+          }}
+        >
+          <div
+            style={{
+              flex: "2",
+              minWidth: "700px",
+            }}
+          >
+            {cartItems.map((item) => (
+              <div
+                key={item._id}
                 style={{
-                  background: "#2563eb",
-                  color: "white",
-                  padding: "12px 20px",
-                  borderRadius: "8px",
-                  border: "none",
-                  fontWeight: "bold",
+                  background: "#fff",
+                  display: "flex",
+                  gap: "20px",
+                  alignItems: "center",
+                  padding: "20px",
+                  marginBottom: "20px",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 12px rgba(0,0,0,.08)",
                 }}
               >
-                View
-              </button>
-            </div>
-          ))}
+                <img
+                  src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800"
+                  alt="product"
+                  style={{
+                    width: "140px",
+                    height: "140px",
+                    objectFit: "cover",
+                    borderRadius: "10px",
+                  }}
+                />
+
+                <div style={{ flex: 1 }}>
+                  <h2>{item.product}</h2>
+
+                  <p style={{ color: "#64748b" }}>
+                    Premium Product
+                  </p>
+
+                  <h3 style={{ color: "#2563eb" }}>
+                    ₹79,999
+                  </h3>
+
+                  <p>
+                    Quantity: {item.quantity}
+                  </p>
+
+                  <p
+                    style={{
+                      color: "green",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    In Stock
+                  </p>
+                </div>
+
+                <button
+                  onClick={() =>
+                    removeItem(item._id)
+                  }
+                  style={{
+                    background: "#ef4444",
+                    color: "#fff",
+                    border: "none",
+                    padding: "12px 20px",
+                    borderRadius: "8px",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
 
           <div
             style={{
+              flex: "1",
+              minWidth: "300px",
               background: "#fff",
               padding: "25px",
               borderRadius: "12px",
-              boxShadow: "0 4px 12px rgba(0,0,0,.1)",
-              textAlign: "center",
+              boxShadow: "0 4px 12px rgba(0,0,0,.08)",
             }}
           >
-            <h2>
-              Total Items : {cartItems.length}
+            <h2>Price Details</h2>
+
+            <p>Total Items: {cartItems.length}</p>
+
+            <h2
+              style={{
+                color: "#2563eb",
+              }}
+            >
+              Final Price: ₹77,999
             </h2>
 
             <button
-              onClick={() => navigate("/checkout")}
+              onClick={() =>
+                navigate("/checkout")
+              }
               style={{
-                marginTop: "20px",
-                background: "#16a34a",
+                marginTop: "25px",
+                width: "100%",
+                background: "#2563eb",
                 color: "white",
-                padding: "15px 35px",
+                padding: "15px",
                 border: "none",
                 borderRadius: "10px",
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: "bold",
+                cursor: "pointer",
               }}
             >
-              Proceed to Checkout
+              Place Order
             </button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

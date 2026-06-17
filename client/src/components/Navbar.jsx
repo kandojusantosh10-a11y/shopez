@@ -8,8 +8,8 @@ function Navbar() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "18px 60px",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+        padding: "15px 40px",
+        boxShadow: "0 2px 15px rgba(0,0,0,0.08)",
         position: "sticky",
         top: 0,
         zIndex: 1000,
@@ -25,19 +25,30 @@ function Navbar() {
           style={{
             color: "#2563eb",
             margin: 0,
-            fontSize: "32px",
+            fontSize: "34px",
             fontWeight: "bold",
-            letterSpacing: "2px",
           }}
         >
           SHOPEZ
         </h1>
       </Link>
 
+      <input
+        type="text"
+        placeholder="Search products..."
+        style={{
+          width: "350px",
+          padding: "12px",
+          borderRadius: "8px",
+          border: "1px solid #d1d5db",
+          outline: "none",
+        }}
+      />
+
       <div
         style={{
           display: "flex",
-          gap: "35px",
+          gap: "25px",
           alignItems: "center",
         }}
       >
@@ -45,7 +56,7 @@ function Navbar() {
           to="/"
           style={{
             textDecoration: "none",
-            color: "#333",
+            color: "#374151",
             fontWeight: "600",
           }}
         >
@@ -56,7 +67,7 @@ function Navbar() {
           to="/products"
           style={{
             textDecoration: "none",
-            color: "#333",
+            color: "#374151",
             fontWeight: "600",
           }}
         >
@@ -67,18 +78,18 @@ function Navbar() {
           to="/cart"
           style={{
             textDecoration: "none",
-            color: "#333",
+            color: "#374151",
             fontWeight: "600",
           }}
         >
-          Cart
+          🛒 Cart
         </Link>
 
         <Link
           to="/orders"
           style={{
             textDecoration: "none",
-            color: "#333",
+            color: "#374151",
             fontWeight: "600",
           }}
         >

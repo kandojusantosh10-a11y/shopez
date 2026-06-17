@@ -23,22 +23,39 @@ function Products() {
   };
 
   return (
-    <div>
-      <h1>All Products</h1>
+    <div
+      style={{
+        background: "#f8fafc",
+        minHeight: "100vh",
+        paddingBottom: "50px",
+      }}
+    >
+      <h1
+        style={{
+          textAlign: "center",
+          paddingTop: "40px",
+          marginBottom: "40px",
+          fontSize: "42px",
+          color: "#1e293b",
+        }}
+      >
+        Featured Products
+      </h1>
 
       <div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "20px",
+          display: "grid",
+          gridTemplateColumns:
+            "repeat(auto-fill, minmax(320px, 320px))",
           justifyContent: "center",
+          gap: "30px",
+          padding: "0 40px",
         }}
       >
         {products.map((product) => (
           <ProductCard
             key={product._id}
-            name={product.name}
-            price={product.price}
+            product={product}
           />
         ))}
       </div>

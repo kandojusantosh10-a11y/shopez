@@ -5,10 +5,12 @@ function Checkout() {
       <p>Total: ₹149,998</p>
 
       <input type="text" placeholder="Full Name" />
-      <br /><br />
+      <br />
+      <br />
 
       <input type="text" placeholder="Address" />
-      <br /><br />
+      <br />
+      <br />
 
       <button>Place Order</button>
     </div>

@@ -5,7 +5,6 @@ function Home() {
 
   return (
     <div>
-
       {/* Hero Section */}
 
       <div
@@ -52,57 +51,85 @@ function Home() {
         </button>
       </div>
 
-      {/* Features */}
+      {/* Why Choose SHOPEZ */}
 
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          flexWrap: "wrap",
-          padding: "60px 20px",
-          gap: "20px",
+          padding: "80px 20px",
+          background: "#f8fafc",
         }}
       >
-        <div
+        <h1
           style={{
-            background: "white",
-            padding: "25px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 10px rgba(0,0,0,.1)",
-            width: "280px",
+            textAlign: "center",
+            fontSize: "42px",
+            marginBottom: "50px",
+            color: "#1e293b",
           }}
         >
-          <h2>🚚 Fast Delivery</h2>
-          <p>Quick delivery across India.</p>
-        </div>
+          Why Choose SHOPEZ?
+        </h1>
 
         <div
           style={{
-            background: "white",
-            padding: "25px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 10px rgba(0,0,0,.1)",
-            width: "280px",
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "30px",
           }}
         >
-          <h2>🔒 Secure Payment</h2>
-          <p>100% safe and secure checkout.</p>
-        </div>
+          <div
+            style={{
+              background: "white",
+              padding: "35px",
+              borderRadius: "16px",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+              width: "320px",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "55px" }}>🚚</div>
+            <h2 style={{ color: "#1e293b" }}>Fast Delivery</h2>
+            <p style={{ color: "#64748b" }}>
+              Quick and reliable delivery across India with real-time tracking.
+            </p>
+          </div>
 
-        <div
-          style={{
-            background: "white",
-            padding: "25px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 10px rgba(0,0,0,.1)",
-            width: "280px",
-          }}
-        >
-          <h2>⭐ Premium Quality</h2>
-          <p>Top brands with genuine products.</p>
+          <div
+            style={{
+              background: "white",
+              padding: "35px",
+              borderRadius: "16px",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+              width: "320px",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "55px" }}>🔒</div>
+            <h2 style={{ color: "#1e293b" }}>Secure Payments</h2>
+            <p style={{ color: "#64748b" }}>
+              Protected transactions with trusted and secure payment methods.
+            </p>
+          </div>
+
+          <div
+            style={{
+              background: "white",
+              padding: "35px",
+              borderRadius: "16px",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+              width: "320px",
+              textAlign: "center",
+            }}
+          >
+            <div style={{ fontSize: "55px" }}>⭐</div>
+            <h2 style={{ color: "#1e293b" }}>Premium Products</h2>
+            <p style={{ color: "#64748b" }}>
+              Genuine branded products with quality assurance and best prices.
+            </p>
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
