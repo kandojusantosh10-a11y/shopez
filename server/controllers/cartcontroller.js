@@ -3,11 +3,19 @@ const Cart = require("../models/cartModel");
 // Add to Cart
 const addToCart = async (req, res) => {
   try {
-    const { user, product, quantity } = req.body;
+    const {
+      user,
+      product,
+      image,
+      price,
+      quantity,
+    } = req.body;
 
     const cart = await Cart.create({
       user,
       product,
+      image,
+      price,
       quantity,
     });
 
